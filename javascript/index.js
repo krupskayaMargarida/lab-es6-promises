@@ -132,3 +132,27 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
+
+p1 = obtainInstruction("brusselsSprouts", 0);
+p2 = obtainInstruction("brusselsSprouts", 1);
+p3 = obtainInstruction("brusselsSprouts", 2);
+p4 = obtainInstruction("brusselsSprouts", 3);
+p5 = obtainInstruction("brusselsSprouts", 4);
+p6 = obtainInstruction("brusselsSprouts", 5);
+p7 = obtainInstruction("brusselsSprouts", 6);
+p8 = obtainInstruction("brusselsSprouts", 7);
+
+Promise.all([p1, p2, p3, p4, p5, p6, p7, p8])
+  .then((newArray) => {
+    newArray.forEach((steps) => {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${steps}</li>`;
+    });
+
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  })
+
+  .catch((err) => console.log(err));
